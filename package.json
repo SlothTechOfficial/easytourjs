@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/henryraygan/tutorialjs.git"
+    "url": "git+https://github.com/SlothTechOfficial/easytourjs.git"
   },
   "author": "Henry Ramirez - @henryraygan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/henryraygan/tutorialjs/issues"
+    "url": "https://github.com/SlothTechOfficial/easytourjs/issues"
   },
-  "homepage": "https://github.com/henryraygan/tutorialjs#readme",
+  "homepage": "https://github.com/SlothTechOfficial/easytourjs#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
