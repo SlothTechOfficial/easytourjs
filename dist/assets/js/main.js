@@ -95,7 +95,7 @@ var MainModule =
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Tutorial */ \"./src/modules/Tutorial.js\");\n// require('./css/tutorial.css')\n// import './css/index.css'\n_modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__[\"Tutorial\"].create();if(document.body.classList.contains('run-steps')){window.onresize=function(){_modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__[\"Tutorial\"].updatePosition();};}document.getElementById(\"init\").addEventListener(\"click\",function(){_modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__[\"Tutorial\"].init();});\n\n//# sourceURL=webpack://MainModule/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Tutorial */ \"./src/modules/Tutorial.js\");\n_modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__[\"Tutorial\"].create();if(document.body.classList.contains('run-steps')){window.onresize=function(){_modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__[\"Tutorial\"].updatePosition();};}document.getElementById(\"init\").addEventListener(\"click\",function(){_modules_Tutorial__WEBPACK_IMPORTED_MODULE_0__[\"Tutorial\"].init();});\n\n//# sourceURL=webpack://MainModule/./src/index.js?");
 
 /***/ }),
 

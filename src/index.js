@@ -1,7 +1,5 @@
 import { Tutorial } from "./modules/Tutorial";
 
-// require('./css/tutorial.css')
-// import './css/index.css'
 
 Tutorial.create();
 

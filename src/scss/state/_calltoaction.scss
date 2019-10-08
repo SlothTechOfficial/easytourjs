@@ -1,0 +1,22 @@
+
+@keyframes calltoaction {
+	0%,33% {
+		box-shadow: 0 0 25px 3px rgba(#045de9,.3);
+
+	}
+	
+	33%,66% {
+		box-shadow: 0 0 27px 1px rgba(#045de9,.7);
+
+	}
+
+	66%, 100% {
+		box-shadow: 0 0 50px 1px rgba(#045de9,.8);
+	}
+	
+	
+	100%, 0% {
+		box-shadow: 0 0 25px 1px rgba(#045de9,.3);
+	}
+	
+}
