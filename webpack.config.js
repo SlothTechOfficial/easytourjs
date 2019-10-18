@@ -8,14 +8,14 @@ module.exports = {
       filename: "assets/js/[name].js",
       library: "MainModule",
   },
- 
+
   devServer: {
     port: 3000
   },
   module: {
     rules: [
      // STYLES
-     {
+    {
       test: /\.css$/,
       use: [
           'style-loader',
@@ -36,9 +36,9 @@ module.exports = {
             'css-loader',
             'sass-loader',
         ]
-    }, 
+    },
      // BABEL
-     {
+    {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: /(node_modules)/,

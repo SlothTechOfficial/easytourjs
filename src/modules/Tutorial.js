@@ -1,30 +1,28 @@
 export const Tutorial = (d => {
-  const _start = () => {
-    d.body.classList.add("run-steps");
-  };
+  const _start = () => d.body.classList.add("run-steps");
 
   const _setCookie = (name, value, days) => {
     var d = new Date();
-    d.setTime(d.getTime() + (days*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-  }
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    var expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/`;
+  };
 
   const _getCookie = name => {
     var name = name + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
+    const decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
+    for (var i = 0; i < ca.length; i++) {
       var c = ca[i];
-      while (c.charAt(0) == ' ') {
+      while (c.charAt(0) === ' ') {
         c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
+      };
+      if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length);
-      }
-    }
+      };
+    };
     return "";
-  }
+  };
 
   const _stop = () => {
     d.body.classList.remove("run-steps");
@@ -48,14 +46,16 @@ export const Tutorial = (d => {
       n = window.pageYOffset || i.scrollTop || e.scrollTop,
       o = window.pageXOffset || i.scrollLeft || e.scrollLeft,
       s = el.getBoundingClientRect();
+
     const _position = {
       top: Math.abs((s.x != 0) ? s.top + n + s.height : s.top + n - (s.height * 3)),
       width: Math.abs(s.width),
       height: Math.abs(s.height),
       left: Math.abs(s.left + o)
-    }
-    console.log(_position)
-    console.log(s)
+    };
+
+    console.log("_position", _position);
+    console.log("s", s);
     return _position;
 
     // const _el = el.getBoundingClientRect(),
@@ -73,10 +73,10 @@ export const Tutorial = (d => {
   const _setPositionLayer = el => {
     const pos = _getActiveElement(el);
     const layer = d.getElementsByClassName("is-step-layer");
-    layer[0].style.top = `${ Math.abs(pos.y)}px`;
-    layer[0].style.left = `${ Math.abs(pos.x)}px`;
-    layer[0].style.width = `${ Math.abs(pos.width)}px`;
-    layer[0].style.height = `${ Math.abs(pos.height)}px`;
+    layer[0].style.top = `${Math.abs(pos.y)}px`;
+    layer[0].style.left = `${Math.abs(pos.x)}px`;
+    layer[0].style.width = `${Math.abs(pos.width)}px`;
+    layer[0].style.height = `${Math.abs(pos.height)}px`;
   };
 
   const _resetLayer = () => {
@@ -89,13 +89,13 @@ export const Tutorial = (d => {
 
   const _scrollIn = (id, d, del) => {
     let TIMER_SCROLL;
-    function scroll(id, d, del){
-        // Scroll the element.
-        id.scrollLeft += d;
-        // Perform a delay before recursing this function again.
-        TIMER_SCROLL = setTimeout("scroll('"+id+"',"+d+", "+del+");", del);
-    }
-  }
+    function scroll(id, d, del) {
+      // Scroll the element.
+      id.scrollLeft += d;
+      // Perform a delay before recursing this function again.
+      TIMER_SCROLL = setTimeout(`scroll('${id}',${d}, ${del});${del}`);
+    };
+  };
 
   const _setPositionTooltip = el => {
     const pos = _getPositionTooltip(el);
@@ -146,11 +146,11 @@ export const Tutorial = (d => {
       d.getElementById("prev").style.display = "none";
     } else {
       d.getElementById("prev").style.display = "inline-block";
-    }
+    };
   };
 
   const _createTooltip = currentStep => {
-    window.scroll(0,0);
+    window.scroll(0, 0);
     const el = _getElementStep(currentStep);
     _setMessageTooltip(currentStep);
     _setPositionTooltip(el);
@@ -167,14 +167,14 @@ export const Tutorial = (d => {
     _removeAllClass();
     currentStep++;
     if (currentStep > stepLength) {
-      window.scroll(0,0);
+      window.scroll(0, 0);
       _stop();
     } else {
       _showPrevButton(true);
       _createTooltip(currentStep);
-      const moveTo = document.getElementById('step-'+currentStep).getBoundingClientRect();
+      const moveTo = document.getElementById(`step-${currentStep}`).getBoundingClientRect();
       window.scroll(moveTo.x, moveTo.y);
-    }
+    };
   };
 
   const _prevStep = () => {
@@ -184,7 +184,7 @@ export const Tutorial = (d => {
       currentStep--;
       _showPrevButton(currentStep - 1);
       _createTooltip(currentStep);
-    }
+    };
   };
 
   const updatePosition = () => {
@@ -218,12 +218,8 @@ export const Tutorial = (d => {
 
     btnPrev.appendChild(tPrev);
     btnNext.appendChild(tNext);
-    btnNext.addEventListener("click", () => {
-      _nextStep();
-    });
-    btnPrev.addEventListener("click", () => {
-      _prevStep();
-    });
+    btnNext.addEventListener("click", () => _nextStep());
+    btnPrev.addEventListener("click", () => _prevStep());
 
     const messageHTML = document.createElement("SPAN"),
       titleHTML = document.createElement("SPAN");
@@ -252,19 +248,17 @@ export const Tutorial = (d => {
   };
 
   const changeStateTutorial = (state) => {
-    if(state) {
+    if (state) {
       _setCookie('tutorial', true, 10);
     } else {
       _setCookie('tutorial', false, 10);
-    }
-  }
+    };
+  };
 
-  const checkTutorial = () => {
-    return _getCookie('tutorial')
-  }
+  const checkTutorial = () => _getCookie('tutorial');
 
   const omitTutorial = () => {
-    changeStateTutorial(false)
+    changeStateTutorial(false);
   }
 
 
@@ -277,4 +271,3 @@ export const Tutorial = (d => {
     omitTutorial
   };
 })(document);
-
